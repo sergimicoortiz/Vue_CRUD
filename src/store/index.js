@@ -17,8 +17,6 @@ export default Vuex.createStore({
             state.todoitem = { id: "", todo: "", desc: "", done: false };
         },
         [Constant.DELETE_TODO]: (state, payload) => {
-            console.log(state);
-            console.log(payload);
             let index = state.todolist.findIndex((item) => item.id === payload.id);
             state.todolist.splice(index, 1);
         },
