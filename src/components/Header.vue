@@ -8,6 +8,9 @@
                 <li class="nav-item">
                     <router-link class="nav-link" to="/todolist">TodoList</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/todoCreate">TodoCreate</router-link>
+                </li>
             </ul>
         </div>
     </nav>

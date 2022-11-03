@@ -7,7 +7,7 @@
             <li>Done: {{ todoitem.done }}</li>
 
             <li>
-                <button @click.stop="toggleDone(todoitem.id)">DONE</button>
+                <button @click="toggleDone(todoitem.id)">DONE</button>
                 <button @click.stop="deleteTodo(todoitem.id)">DELETE</button>
                 <button @click.stop="editTodo(todoitem.id)">EDIT</button>
             </li>
@@ -28,16 +28,16 @@ export default {
     setup(props) {
         const store = useStore();
         const router = useRouter();
-
         const toggleDone = (id) => {
             store.dispatch(Constant.TOGGLE_DONE, { id });
         }
         const deleteTodo = (id) => {
             store.dispatch(Constant.DELETE_TODO, { id });
         }
+
         const editTodo = (id) => {
             store.dispatch(Constant.INITIALIZE_TODOITEM, { todoitem: { ...props.todoitem } });
-            router.push({ name: 'updateTodo', params: { id } })
+            router.push({ name: 'todoUpdate', params: { id } })
         }
 
         return { toggleDone, deleteTodo, editTodo }
