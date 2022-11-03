@@ -36,7 +36,6 @@ export default {
         }
 
         const editTodo = (id) => {
-            store.dispatch(Constant.INITIALIZE_TODOITEM, { todoitem: { ...props.todoitem } });
             router.push({ name: 'todoUpdate', params: { id } })
         }
 

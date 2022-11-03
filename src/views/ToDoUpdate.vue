@@ -36,7 +36,6 @@ export default {
         const currentRoute = useRoute();
 
         const todoitem = store.state.todolist.find((item) => item.id === currentRoute.params.id)
-        //const todoitem = store.state.todoitem;
 
         const state = reactive({
             todoitemlocal: { ...todoitem }
