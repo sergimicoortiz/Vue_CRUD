@@ -12,4 +12,5 @@ app.use(router);
 app.use(store);
 app.use(VueLazyLoad);
 app.use(Toaster);
+
 app.mount('#app');

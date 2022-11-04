@@ -10,13 +10,13 @@ import { reactive, computed } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import ToDoItem from '../components/ToDoItem.vue';
-import { createToaster } from "@meforma/vue-toaster";
 export default {
     components: { ToDoItem },
     setup() {
-        const toaster = createToaster({ "position": "top-right", "duration": 1500 });
         const store = useStore();
         const router = useRouter();
+        const toaster = store.state.toaster;
+
         const state = reactive({
             todolist: computed(() => store.state.todolist)
         });

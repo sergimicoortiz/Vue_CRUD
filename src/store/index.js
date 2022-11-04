@@ -1,6 +1,7 @@
 import Vuex from "vuex";
 import Constant from '../Constant';
 import shortid from 'shortid';
+import { createToaster } from "@meforma/vue-toaster";
 
 export default Vuex.createStore({
     state: {
@@ -9,7 +10,8 @@ export default Vuex.createStore({
             { "id": shortid.generate(), "todo": "pepito2", "desc": "this is a test2", "done": false },
             { "id": shortid.generate(), "todo": "pepito3", "desc": "this is a test3", "done": false },
             { "id": shortid.generate(), "todo": "pepito4", "desc": "this is a test4", "done": false }
-        ]
+        ],
+        toaster: createToaster({ "position": "top-right", "duration": 1500 })
     },
     mutations: {
         [Constant.ADD_TODO]: (state, payload) => {
