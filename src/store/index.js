@@ -14,7 +14,6 @@ export default Vuex.createStore({
     mutations: {
         [Constant.ADD_TODO]: (state, payload) => {
             state.todolist.push({ ...payload.todoitem, id: shortid.generate(), done: false });
-            state.todoitem = { id: "", todo: "", desc: "", done: false };
         },
         [Constant.DELETE_TODO]: (state, payload) => {
             let index = state.todolist.findIndex((item) => item.id === payload.id);
