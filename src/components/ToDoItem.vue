@@ -1,15 +1,12 @@
 <template>
     <li>
         <ul>
-            <li>Id: {{ todoitem.id }}</li>
-            <li>Todo: {{ todoitem.todo }}</li>
-            <li>Desc: {{ todoitem.desc }}</li>
-            <li>Done: {{ todoitem.done }}</li>
+            <li>Id: {{ tablesitem.id }}</li>
+            <li>Todo: {{ tablesitem.name }}</li>
 
             <li>
-                <button @click="toggleDone(todoitem.id)">DONE</button>
-                <button @click.stop="deleteTodo(todoitem.id)">DELETE</button>
-                <button @click.stop="editTodo(todoitem.id)">EDIT</button>
+                <button @click.stop="deleteTodo(tablesitem.id)">DELETE</button>
+                <button @click.stop="editTodo(tablesitem.id)">EDIT</button>
             </li>
         </ul>
     </li>
@@ -23,14 +20,11 @@ import { useRouter } from 'vue-router';
 
 export default {
     props: {
-        todoitem: Object,
+        tablesitem: Object,
     },
     setup(props) {
         const store = useStore();
         const router = useRouter();
-        const toggleDone = (id) => {
-            store.dispatch(Constant.TOGGLE_DONE, { id });
-        }
         const deleteTodo = (id) => {
             store.dispatch(Constant.DELETE_TODO, { id });
         }
@@ -39,7 +33,7 @@ export default {
             router.push({ name: 'todoUpdate', params: { id } })
         }
 
-        return { toggleDone, deleteTodo, editTodo }
+        return { deleteTodo, editTodo }
     }
 }
 </script>

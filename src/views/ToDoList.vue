@@ -1,6 +1,6 @@
 <template>
     <ul class="list-group">
-        <ToDoItem v-for="todoitem in state.todolist" :key="todoitem.id" :todoitem="todoitem" />
+        <ToDoItem v-for="tablesitem in state.tablesList" :key="tablesitem.id" :tablesitem="tablesitem" />
     </ul>
     <button @click="test()">TEST</button>
 </template>
@@ -9,6 +9,7 @@
 import { reactive, computed } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
+import Constant from "../Constant";
 import ToDoItem from '../components/ToDoItem.vue';
 export default {
     components: { ToDoItem },
@@ -17,8 +18,9 @@ export default {
         const router = useRouter();
         const toaster = store.state.toaster;
 
+        store.dispatch(`tables/${Constant.INITIALIZE_TABLE}`);
         const state = reactive({
-            todolist: computed(() => store.state.todolist)
+            tablesList: computed(() => store.getters["tables/getTables"])
         });
 
         const test = () => {

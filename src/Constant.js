@@ -1,6 +1,6 @@
 export default {
-    ADD_TODO: "addTodo",
-    UPDATE_TODO: "updateTodo",
-    TOGGLE_DONE: "toggleDone",
-    DELETE_TODO: "deleteTodo"
+    ADD_TABLE: "addTable",
+    UPDATE_TABLE: "updateTable",
+    DELETE_TABLE: "deleteTable",
+    INITIALIZE_TABLE: "InitializeTable"
 }
