@@ -26,7 +26,7 @@ export default {
         const store = useStore();
         const router = useRouter();
         const deleteTodo = (id) => {
-            store.dispatch(Constant.DELETE_TODO, { id });
+            store.dispatch(`tables/${Constant.DELETE_TABLE}`, { id });
         }
 
         const editTodo = (id) => {

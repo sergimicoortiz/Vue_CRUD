@@ -5,12 +5,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label htmlFor="todo">Name :</label>
-                    <input type="text" class="form-control" v-model="state.todoitemlocal.todo" />
-                </div>
-                <div class="form-group">
-                    <label htmlFor="desc">Desc :</label>
-                    <textarea class="form-control" rows="3" id="desc" v-model="state.todoitemlocal.desc"></textarea>
+                    <label htmlFor="name">Name :</label>
+                    <input type="text" class="form-control" v-model="state.todoitemlocal.name" />
                 </div>
                 <div class="form-group">
                     <button type="button" class="btn btn-primary m-1" @click="addTodo">Add</button>
@@ -33,12 +29,12 @@ export default {
         const router = useRouter();
 
         const state = reactive({
-            todoitemlocal: { todo: "", desc: "" }
+            todoitemlocal: { name: "" }
         });
 
         const addTodo = () => {
-            if (state.todoitemlocal.todo.trim().length >= 2 && state.todoitemlocal.desc.trim().length >= 2) {
-                store.dispatch(Constant.ADD_TODO, { todoitem: state.todoitemlocal })
+            if (state.todoitemlocal.name.trim().length >= 2) {
+                store.dispatch(`tables/${Constant.ADD_TABLE}`, { tablesitem: state.todoitemlocal })
                 router.push({ name: "todolist" });
             } else {
                 alert('Error regex');
