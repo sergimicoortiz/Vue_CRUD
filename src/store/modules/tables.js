@@ -39,6 +39,9 @@ export const tables = {
                 console.error(error);
             }
         },//action update
+        [Constant.INITIALIZE_ONE_TABLE]: (store, payload) => {
+            store.commit(Constant.INITIALIZE_ONE_TABLE, payload);
+        },//action initialize one
     },
     mutations: {
         [Constant.INITIALIZE_TABLE]: (state, payload) => {
@@ -53,12 +56,24 @@ export const tables = {
             state.tablesList.push(payload);
         },//delete mutation
         [Constant.UPDATE_TABLE]: (state, payload) => {
-            console.log(payload);
+            const index = state.tablesList.findIndex(item => item.id == payload.id);
+            if (index !== -1) {
+                state.tablesList[index] = payload;
+            }
         },//delete update
+        [Constant.INITIALIZE_ONE_TABLE]: (state, payload) => {
+            const index = state.tablesList.findIndex(item => item.id == payload.id);
+            if (index !== -1) {
+                state.tablesOne = state.tablesList[index];
+            }
+        }
     },
     getters: {
         getTables(state) {
             return state.tablesList;
         },//all tables
+        getOneTables(state) {
+            return state.tablesOne;
+        },//one tables
     },
 }

@@ -15,7 +15,6 @@ export default {
     },//create
 
     UpdateTables(id, data) {
-        console.log(data);
         return Api().put(`tables/${id}`, { "name": data.name });
     }//update
 

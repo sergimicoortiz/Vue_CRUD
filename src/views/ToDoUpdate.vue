@@ -27,12 +27,13 @@ export default {
         const router = useRouter();
         const currentRoute = useRoute();
 
-        const todoitem = store.getters["tables/getTables"].find((item) => item.id === currentRoute.params.id);
+
+        store.dispatch(`tables/${Constant.INITIALIZE_ONE_TABLE}`, { id: currentRoute.params.id });
+        const todoitem = store.getters["tables/getOneTables"];
 
         const state = reactive({
             todoitemlocal: { ...todoitem }
         });
-        console.log(state);
 
         const updateTodo = () => {
             store.dispatch(`tables/${Constant.UPDATE_TABLE}`, { tablesitem: state.todoitemlocal });

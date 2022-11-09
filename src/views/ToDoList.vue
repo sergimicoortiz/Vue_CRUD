@@ -18,6 +18,8 @@ export default {
         const router = useRouter();
         const toaster = store.state.toaster;
 
+        //The dispatch is also done when you do a router.push
+        //You don't need the mutations that update the state because the state is refresh.
         store.dispatch(`tables/${Constant.INITIALIZE_TABLE}`);
         const state = reactive({
             tablesList: computed(() => store.getters["tables/getTables"])
