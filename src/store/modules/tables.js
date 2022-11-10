@@ -9,6 +9,8 @@ export const tables = {
             try {
                 const res = await TablesService.GetTables();
                 store.commit(Constant.INITIALIZE_TABLE, res.data.data);
+                //const res = await TablesService.GetTablesSpring();
+                //store.commit(Constant.INITIALIZE_TABLE, res.data);
             } catch (error) {
                 console.error(error);
             }
